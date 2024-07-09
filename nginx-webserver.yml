@@ -1,0 +1,32 @@
+---
+- name: install  nginx webserver
+  hosts: webservers
+  become: yes
+  roles:
+    - nginx-role
+  # vars:
+  #  username: nourhan
+  gather_facts: no
+
+  # tasks:
+  #  - name: install nginx 
+  #    ansible.builtin.yum:
+  #      name: nginx
+  #      state: present
+  #  - name: start nginx server
+  #    service: 
+  #      name: nginx
+  #      state: started
+  #      enabled: yes
+  #  - name: add custom root page
+  #    ansible.builtin.template:
+  #      src: index.html.j2
+  #      dest: /usr/share/nginx/html/index.html
+  #      mode: 0644
+  #    notify: restart nginx
+        
+  # handlers:
+  #  - name: restart nginx
+  #    service: 
+  #      name: nginx
+  #      state: restarted

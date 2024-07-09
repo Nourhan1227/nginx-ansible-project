@@ -1,0 +1,4 @@
+---
+# defaults file for roles/nginx-role
+username: nourhan
+password: pass

@@ -1,0 +1,17 @@
+---
+# tasks file for roles/nginx-role
+- name: install nginx 
+  ansible.builtin.yum:
+    name: nginx
+    state: present
+- name: start nginx server
+  service: 
+    name: nginx
+    state: started
+    enabled: yes
+- name: add custom root page
+  ansible.builtin.template:
+    src: index.html.j2
+    dest: /usr/share/nginx/html/index.html
+    mode: 0644
+  notify: restart nginx
